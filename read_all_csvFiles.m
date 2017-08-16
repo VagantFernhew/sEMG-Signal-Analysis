@@ -1,11 +1,9 @@
 
 %========================================================
-% this script reads csv data files from 4 different directories.
-% and assign labels to the gestures.change the directories accordingly 
-% where your data is stored. no.of csv files in each directory  
-%  must be equal. cset the value of num_files variable in the code
-% to the no.of csv files you have in each set(gesture).
-% the data is saved as MATLAB array in the directory 'mydir'
+% this script reads csv data files from 4 different directories. and assign labels to the gestures.change the directories accordingly
+% where your data is stored. no.of csv files in each directory must be equal. set the value of num_files variable in the code to the 
+% no.of csv files you have in each set(gesture).the data is saved as MATLAB array in the directory 'mydir'. change the colOffset and 
+% endCol values (1-8) to read the data of different sensor
 %=========================================================
 
 directory = {
@@ -14,7 +12,8 @@ directory = {
 	'E:\FYP\EMG RawData\08 Agust(Shera)\wave in',
 	'E:\FYP\EMG RawData\08 Agust(Shera)\wave out'
 };
-mydir = 'E:\FYP\EMG RawData\data';
+
+mydir = 'E:\FYP\EMG RawData\data'; % directory where the final data will be saved
 num_files = 140;
 rowOffset = 1;
 endRow = 600;
@@ -53,4 +52,4 @@ for i = 1:direc_len
      mydata = ones(endRow,num_files);
 end
 data = [data(:,:,1);data(:,:,2);data(:,:,3);data(:,:,4)];
-save(mydir,'data');
+save(mydir,'data');   % save the data to specified directory
